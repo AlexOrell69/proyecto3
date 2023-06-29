@@ -1,0 +1,73 @@
+{% extends 'app_orell_alexander/base.html' %}
+
+{% block content %}
+{% load static %}
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
+<link rel="stylesheet" href="{% static 'app_orell_alexander/css/estiloservicios.css'%}" type="text/css" media="all" />
+<section>
+   
+
+    <table class="table table-success table-striped">
+        <tr> 
+            <th>Cartera de servicios</th>
+            <th>Estandar</th>
+            <th>Full</th>
+        </tr>
+        <tr>
+          <th>Cambio de aceite motor</th>
+          <th>SI</th>
+          <th>SI</th>
+        </tr> 
+        <tr>
+          <th>Cambio de filtro aceite motor</th>
+          <th>SI</th>
+          <th>SI</th>
+        </tr> 
+        <tr>
+          <th>Cambio de filtro aire de motor</th>
+          <th>NO</th>
+          <th>SI</th>
+        </tr> 
+        <tr>
+          <th>Cambio de filtro de petróleo y filtro decantador (solo para vehículos diesel)</th>
+          <th>NO</th>
+          <th>SI</th>
+        </tr> 
+        <tr>
+          <th>Cambio de filtro de polen (Si corresponde según modelo)</th>
+          <th>NO</th>
+          <th>SI</th>
+        </tr> 
+        <tr>
+          <th>Revisión de estado de bujías</th>
+          <th>SI</th>
+          <th>SI</th>
+        </tr> 
+        <tr>
+          <th>Revisión de fugas de aceite o fluidos</th>
+          <th>NO</th>
+          <th>SI</th>
+        </tr> 
+        <tr>
+          <th>Revisión de estado y niveles de aceites y fluidos</th>
+          <th>SI</th>
+          <th>SI</th>
+        </tr> 
+        <tr>
+          <th>Revisar estado de correas de accesorios</th>
+          <th>NO</th>
+          <th>SI</th>
+        </tr> 
+        <tr>
+          <th>Revisar estado sistema de Distribución (validar cambio según pauta fabricante)</th>
+          <th>NO</th>
+          <th>SI</th>
+        </tr> 
+
+
+    </table>
+
+
+  </section>
+{% endblock %}

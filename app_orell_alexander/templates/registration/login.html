@@ -1,0 +1,31 @@
+{% extends 'app_orell_alexander/base.html' %}
+{% block content %}
+
+{% load static %}
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
+<link rel="stylesheet" href="{% static 'app_orell_alexander/css/estiloservicios.css'%}" type="text/css" media="all" />
+{% load crispy_forms_tags %}
+
+
+<br>
+<center>
+<form action="" method="post">
+    {% csrf_token %}
+    <div class="card border-success mb-3" style="max-width: 18rem;">
+      <div class="card-header bg-transparent border-success"><img src="{% static 'app_orell_alexander/img/login.jpeg'%}" width="250" height="100"></div>
+    <!--<div class="card text-white bg-primary mb-3" style="width: 30rem;">-->
+        <div class="card-body">
+          <h3 class="card-title">Ingrese sus Credenciales</h3>
+          {{ form | crispy }}
+          <button class="btn btn-sm btn-primary float-end" type="submit">Iniciar Sesion</button>
+          <h6>No tiene cuenta?</h6>
+          <a href="{% url 'register' %}" class="card-link">Registrarse</a>
+
+          
+        </div>
+      </div>
+       
+</form>
+</center>
+{% endblock %}

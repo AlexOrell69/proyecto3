@@ -1,0 +1,37 @@
+{% extends 'app_orell_alexander/base.html' %}
+
+{% block content %}
+{% load static %}
+
+{% load crispy_forms_tags %}
+<link rel="stylesheet" href="{% static 'app_orell_alexander/css/estiloservicios.css'%}" type="text/css" media="all" />
+<center>
+{% if request.user.is_authenticated %}
+<h4>
+    {{ user.username | upper }}, debe cerrar sesion para Ingresar Al registro <a href="{% url 'logout' %}"> Salir</a>
+    </h4>
+    <img src="{% static 'app_orell_alexander/img/caminocerrado.jpg'%}" width="700" height="500"/>
+{% else %}
+
+<br>
+<form action="" method="post">
+    {% csrf_token %}
+
+    <div class="card border-success mb-3" style="max-width: 18rem;">
+      <div class="card-header bg-transparent border-success"><img src="{% static 'app_orell_alexander/img/registro.jpeg'%}" width="250" height="100"></div>
+        <div class="card-body">
+          <h3 class="card-title">Registro de Usuario</h3>
+          {{ form | crispy }}
+        <button class="btn btn-sm btn-primary float-end" type="submit">Registrarse</button>
+          <br>
+          <br>
+          <h6>Ya tiene cuenta?</h6><a href="{% url 'login' %}" class="card-link"> Inicie sesion aqui</a>
+
+          
+        </div>
+      </div>
+       
+</form>
+{% endif %}
+</center>
+{% endblock %}

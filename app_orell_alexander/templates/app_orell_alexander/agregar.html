@@ -1,0 +1,21 @@
+{% extends 'app_orell_alexander/base.html' %}
+{% block content %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'app_orell_alexander/css/estiloproductos.css'%}" type="text/css" media="all" />
+<div class="container1">
+    <h1>agregar producto</h1>
+    <form action="{% url 'agregarrec' %}" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <label for="">Nombre</label><br><br>
+        <input type="text" name="nombre"><br><br>
+        <label for="">descripcion</label><br><br>
+        <input type="text" name="descripcion"><br><br>
+        <label for="">precio</label><br><br>
+        <input type="text" name="precio"><br><br>
+        <label for="">imagen</label><br><br>
+        <input type="file" name="imagen"><br><br>
+        <button type="submit" id="new">agregar</button>
+    </form>
+
+
+{% endblock %}

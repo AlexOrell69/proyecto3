@@ -1,0 +1,71 @@
+{% extends 'app_orell_alexander/base.html' %}
+
+{% block content %}
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'app_orell_alexander/css/estiloproductos.css'%}" type="text/css" media="all" />
+{% if request.user.is_authenticated %}
+
+<h4>
+    {{ user.username | upper }}, Bienvenido
+    </h4>
+{% endif %}
+
+{% if request.user.is_staff %}
+<div class="container">
+    <h1>productos</h1>
+    <table class="table table-dark table-striped">
+        <thead>
+                <th>id</th>
+                <th>Nombre</th>
+                <th>descripcion</th>
+                <th>precio</th>
+                <th>imagen</th>
+                <th colspan="2" id="min">Realizar</th>
+        </thead>
+        {% for x in prod %}
+        <tr>
+            <td>{{x.id}}</td>
+            <td>{{x.nombre}}</td>
+            <td>{{x.descripcion}}</td>
+            <td>{{x.precio}}</td>
+            <td> <img src="{{ x.imagen.url }}" width="50" height="50"> </td>
+            <td><a href="actualizar/{{x.id}}"><button>Actualizar</button></a>
+            </td>
+            <td><a href="eliminar/{{x.id}}"><button>Eliminar</button></a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+    <br><br>
+    <a href="{% url 'agregar' %}"><button id="new3">Agregar producto</button></a>
+  </div>
+{% else %}
+<h1>productos</h1>
+<table class="table table-dark table-striped">
+    <thead>
+            <th>id</th>
+            <th>Nombre</th>
+            <th>descripcion</th>
+            <th>precio</th>
+            <th>imagen</th>
+            <th colspan="2" id="min">Realizar</th>
+    </thead>
+    {% for x in prod %}
+    <tr>
+        <td>{{x.id}}</td>
+        <td>{{x.nombre}}</td>
+        <td>{{x.descripcion}}</td>
+        <td>{{x.precio}}</td>
+        <td> <img src="{{ x.imagen.url }}" width="50" height="50"> </td>
+        <td><input type="number" id="tentacles" name="tentacles"
+            min="1" max="100"><a href="#"><button>Agregar al carrito</button></a>
+        </td>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+{% endif %}
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+{% endblock %}

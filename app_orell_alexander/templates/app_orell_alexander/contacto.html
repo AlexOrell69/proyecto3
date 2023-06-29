@@ -1,0 +1,48 @@
+{% extends 'app_orell_alexander/base.html' %}
+
+{% block content %}
+{% load static %}
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
+<link rel="stylesheet" href="{% static 'app_orell_alexander/css/estilocontacto.css'%}" type="text/css" media="all" />
+<div class="container text-center">
+    <div class="row">
+      <div class="col">
+        <!-- API -->
+        <div class="container-md">
+            <h1>Ubicacion Taller</h1>
+            <div id="map"></div>
+            <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBDaeWicvigtP9xPv919E-RNoxfvC-Hqik&callback=iniciarMap"></script>
+            </div></div>
+      </div>
+      <div class="col">
+        <!--FORMULARIO-->
+        <div class="container-md">
+            <h1>Formulario de contacto</h1>
+            <form action="#" target="" method="get" name="formDatosPersonales">
+            <label for="nombre">Nombre:</label>
+            <input type="text" name="nombre" placeholder="Nombre" required><br>
+            <label for="appaterno">Apellido Paterno:</label>
+            <input type="text" name="appaterno" placeholder="Apellido Paterno" required> <br>
+            <label for="apmaterno">Apellido Materno:</label>
+            <input type="text" name="apmaterno" placeholder="Apellido Materno" required><br>
+            <label for="rut">Rut:</label>
+            <input type="text" id="rut" name="rut" required oninput="checkRut(this)" placeholder="Ingrese RUT" required><br>
+            <label for="gener">Genero:</label>
+            <select name="genero" required>
+            <option value="femenino">Femenino</option>
+            <option value="masculino" selected>Masculino</option>
+            <option value="no definido">No definido</option>
+            </select><br>
+            <label for="correo">E-mail</label>
+            <input type="email" name="correo" placeholder="Correo Electronico" required><br>
+            <label for="cel">Celular:</label>
+            <input type="text" name="celular" placeholder="celular" required><br>
+            <button type="submit" id="btnenviar">Enviar</button>
+            </section>
+            <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}
